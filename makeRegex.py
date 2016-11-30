@@ -36,4 +36,29 @@ while 1:
 
     fullRegexString = "^" + ''.join(listStrings) + "$"
     # print fullRegexString
+    print "/**************/"
+    print "/* Nouns Only */"
+    print "/**************/"
     regex_dict.printNouns(fullRegexString)
+
+    listStrings1 = [notReserved]
+    listStrings2 = [notReserved]
+
+    digitIndex = 0
+    for digit in stringToConvert:
+        if digitIndex < len(stringToConvert)/2:
+            listStrings1.append("[" + mapping[digit] + "]" + notReserved)
+        else:
+            listStrings2.append("[" + mapping[digit] + "]" + notReserved)
+        digitIndex=digitIndex+1
+
+    fullRegexString1 = "^" + ''.join(listStrings1) + "$"
+    fullRegexString2 = "^" + ''.join(listStrings2) + "$"
+    print "/**************/"
+    print "/* Adjectives */"
+    print "/**************/"
+    regex_dict.printAdjectives(fullRegexString1)
+    print "/*********/"
+    print "/* Nouns */"
+    print "/*********/"
+    regex_dict.printNouns(fullRegexString2)

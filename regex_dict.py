@@ -22,7 +22,7 @@ def printWords( string, parts ):
     for line in lines:
         length = len(line)
         if "http://www.yourdictionary.com/" in line:
-            print line[length-line[::-1].index('"')+1:length-8]
+            print "  ", line[length-line[::-1].index('"')+1:length-8]
 
 def printNouns( string ):
     printWords( string, ['n'] )
